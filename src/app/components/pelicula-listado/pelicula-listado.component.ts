@@ -30,7 +30,7 @@ export class PeliculaListadoComponent implements OnInit {
         this.elements = [];
         snapshot.docs.map((element: any) => {
           const rl = this.servicioPeliculas
-            .getMoviePhoto(element.data().fotoDeLaPelicula)
+            .getMoviePhoto(element.data().foto)
             .then((url) => {
               this.elements.push({
                 id: element.id,
