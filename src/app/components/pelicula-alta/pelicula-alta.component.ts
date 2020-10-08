@@ -45,7 +45,7 @@ export class PeliculaAltaComponent implements OnInit {
       .then((snapshot) => {
         this.baseActores = [];
         snapshot.docs.map((element: any) => {
-          this.servicioActores.getActorPhoto(element.data().foto).then((url) => {
+          this.servicioActores.getActorPhoto(element.data().fotoActor).then((url) => {
             this.baseActores.push({
               id: element.id,
               data: element.data(),
