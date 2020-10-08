@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <h2>Modificar</h2>
+      <div>
+        <label>Nombre:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="nombrePeli"
+          value="{{ inputElementoParaModificar?.data.nombre }}"
+        />
+      </div>
+      <div>
+        <label>Genero:</label>
+        <br />
+        <select
+          (change)="getTipoPeliValue($event.target.value)"
+          [(ngModel)]="tipoPeliSelection"
+        >
+          <option [value]="tipoPelisEnum.SINCLASIFICACION">
+            --Seleccione--
+          </option>
+          <option ngValue="1" [value]="tipoPelisEnum.TERROR">
+            {{ tipoPelisLabels[tipoPelisEnum.TERROR] }}
+          </option>
+          <option ngValue="2" [value]="tipoPelisEnum.COMEDIA">
+            {{ tipoPelisLabels[tipoPelisEnum.COMEDIA] }}
+          </option>
+          <option ngValue="3" [value]="tipoPelisEnum.ROMANCE">
+            {{ tipoPelisLabels[tipoPelisEnum.ROMANCE] }}
+          </option>
+          <option ngValue="4" [value]="tipoPelisEnum.OTROS">
+            {{ tipoPelisLabels[tipoPelisEnum.OTROS] }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Fecha De Estreno:</label
+        ><input
+          class="form-control"
+          type="date"
+          [(ngModel)]="fechaEstreno"
+          value="{{ inputElementoParaModificar?.data.fechaDeEstreno }}"
+        />
+      </div>
+      <div>
+        <label>Cantidad de Publico:</label
+        ><input
+          class="form-control"
+          type="number"
+          [(ngModel)]="cantEspectador"
+          value="{{ inputElementoParaModificar?.data.cantidadDePublico }}"
+        />
+      </div>
+
+      <div>
+        <label>Foto:</label
+        ><input
+          class="form-control"
+          type="file"
+          (change)="handlerArchivoInput($event.target.files)"
+        />
+      </div>
+      <p>Presione Modificar para aplicar los cambios.</p>
+      <p>
+        <a
+          class="btn btn-secondary"
+          role="button"
+          (click)="modificarElemento(inputElementoParaModificar)"
+          >Modificar</a
+        >
+      </p>
+    </div>
+  </div>
+</div>

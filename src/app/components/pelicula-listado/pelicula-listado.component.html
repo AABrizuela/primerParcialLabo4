@@ -1,0 +1,10 @@
+<app-tabla-pelicula
+  [coleccionPeliculas]="elements"
+  (emitterBorrar)="handlerElementoBorrar($event)"
+  (emitterDetalle)="handlerElementoDetalle($event)"
+></app-tabla-pelicula>
+<app-detalle
+  [inputMostrarBorrar]="busqueda"
+  [inputElementoDetalle]="elementoDetalle"
+  (outputDeletedElement)="getColeccionActualizada()"
+></app-detalle>

@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <h2>Detalle</h2>
+      <div>
+        <label>Nombre:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="nombrePeli"
+          value="{{ nombrePeli }}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>Tipo:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="tipoPeli"
+          value="{{ tipoPeli }}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>Fecha de Estreno:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="fechaEstreno"
+          value="{{ fechaEstreno }}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>Cantidad de Publico:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="cantEspectador"
+          value="{{ cantEspectador }}"
+          disabled
+        />
+      </div>
+      <p>
+        Presione 'Limpiar' para reiniciar los campos.
+      </p>
+      <p>
+        <a class="btn btn-secondary" role="button" (click)="limpiarCampos()"
+          >Limpiar Campos</a
+        >
+        <a
+          class="btn btn-secondary"
+          role="button"
+          (click)="borrarElemento()"
+          *ngIf="inputMostrarBorrar"
+          >Borrar Elemento</a
+        >
+      </p>
+    </div>
+  </div>
+</div>

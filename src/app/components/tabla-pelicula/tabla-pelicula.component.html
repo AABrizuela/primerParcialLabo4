@@ -1,0 +1,39 @@
+<div class="container grid">
+  <div class="wrapper" *ngFor="let pelicula of coleccionPeliculas">
+    <div class="card mb-4 shadow-sm">
+      <img [src]="pelicula.movieUrl" alt="" style="width: 200px; height: 100px" />
+      <div class="card-body">
+        <p class="card-text">
+          {{ pelicula.data.nombre }}
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button
+              *ngIf="mostrarActualizarYBorrar"
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="emisorBorar(pelicula)"
+            >
+              Borrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="emisorDetalle(pelicula)"
+            >
+              Detalle
+            </button>
+            <button
+              *ngIf="mostrarActualizarYBorrar"
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="emisorModificar(pelicula)"
+            >
+              Modificar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

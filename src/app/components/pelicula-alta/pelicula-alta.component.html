@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div>
+        <h2>Agregar Pelicula</h2>
+        <div>
+          <label>Nombre:</label
+          ><input class="form-control" [(ngModel)]="nombrePeli" />
+        </div>
+        <div>
+          <label>Genero:</label>
+          <br />
+          <select (change)="getTipoPeliValue($event.target.value)">
+            <option>--Seleccione--</option>
+            <option [value]="tipoPelisEnum.TERROR">
+              {{ tipoPelisLabels[tipoPelisEnum.TERROR] }}
+            </option>
+            <option [value]="tipoPelisEnum.COMEDIA">
+              {{ tipoPelisLabels[tipoPelisEnum.COMEDIA] }}
+            </option>
+            <option [value]="tipoPelisEnum.ROMANCE">
+              {{ tipoPelisLabels[tipoPelisEnum.ROMANCE] }}
+            </option>
+            <option [value]="tipoPelisEnum.OTROS">
+              {{ tipoPelisLabels[tipoPelisEnum.OTROS] }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label>Fecha De Estreno:</label
+          ><input
+            type="date"
+            class="form-control"
+            [(ngModel)]="fechaEstreno"
+            (change)="handlerCambioFecha($event)"
+          />
+        </div>
+        <div>
+          <label>Cantidad de Publico:</label
+          ><input
+            type="number"
+            class="form-control"
+            [(ngModel)]="cantEspectador"
+          />
+        </div>
+
+        <div>
+          <label>Foto:</label
+          ><input
+            type="file"
+            class="form-control"
+            [(ngModel)]="urlFoto"
+            (change)="handlerArchivoInput($event.target.files)"
+          />
+        </div>
+        <p>
+          <a class="btn btn-secondary" role="button" (click)="uploadNewMovie()"
+            >Guardar</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <app-tabla-actor
+        (selectedActor)="handleActorSelection($event)"
+        [coleccionActores]="baseActores"
+      ></app-tabla-actor>
+    </div>
+  </div>
+</div>
