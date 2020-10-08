@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-8">
       <div>
@@ -44,5 +44,94 @@
         </p>
       </div>
     </div>
+  </div>
+</div> -->
+<div class="container grid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row title">
+        <h2>Cargar Actor</h2>
+      </div>
+      <!-- <div class="row card-text">
+      <p>Venta de productos para uso comercial.<br>Disponibles al por mayor y menor</p>
+  </div> -->
+      <form
+        [formGroup]="actorForm"
+        (ngSubmit)="uploadNewActor()"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="nombre"><b>Nombre:</b></label>
+          <input
+            formControlName="nombre"
+            type="text"
+            class="form-control"
+            id="nombre"
+            placeholder="Ingrese nombre del actor:"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="apellido"><b>Apellido:</b></label>
+          <input
+            formControlName="apellido"
+            type="text"
+            class="form-control"
+            id="apellido"
+            placeholder="Ingrese apellido del actor:"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="nacionalidad"><b>Genero:</b></label>
+
+          <select
+            formControlName="genero"
+            class="form-control"
+            required
+            (change)="getGenderValue($event.target.value)"
+          >
+            <option value="NA">--Seleccione--</option>
+            <option ngValue="1" value="Masculino">Masculino</option>
+            <option ngValue="2" value="Femenino">Femenino</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha"><b>Fecha de nacimiento:</b></label>
+          <input
+            formControlName="fechaNac"
+            type="date"
+            class="form-control"
+            id="fechaNac"
+            placeholder="Seleccione fecha de nacimiento:"
+            required
+          />
+        </div>
+
+        <div>
+          <label>Foto:</label
+          ><input
+            type="file"
+            class="form-control"
+            (change)="handleFileInput($event.target.files)"
+          />
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="!actorForm.valid"
+          class="btn btn-primary"
+        >
+          Alta
+        </button>
+      </form>
+    </div>
+    <app-lista-paises
+      (selectedCountry)="registerCountry($event)"
+    ></app-lista-paises>
   </div>
 </div>

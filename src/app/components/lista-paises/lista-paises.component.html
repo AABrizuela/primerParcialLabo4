@@ -1,0 +1,19 @@
+<div class="container grid">
+  <table class="table table-striped col-md-8">
+    <tbody>
+      <tr
+        *ngFor="let country of filteredCountries"
+        (click)="selectCountry(country)"
+      >
+        <td>
+          <img
+            [src]="country.flag"
+            alt=""
+            style="width: 100px; height: 100px"
+          />
+        </td>
+        <td>{{ country.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

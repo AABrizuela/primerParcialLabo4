@@ -5,6 +5,7 @@ import { MoviesService } from '../../services/movies.service';
 import { movieTypesEnum, movieTypesEnumLabels } from '../../enums/movieEnum';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-pelicula-alta',
@@ -37,14 +38,22 @@ export class PeliculaAltaComponent implements OnInit {
     this.getUpdatedCollection();
   }
 
+  peliculaForm = new FormGroup({
+    descripcion: new FormControl(''),
+    cantidadDePublico: new FormControl(''),
+    fecha: new FormControl(''),
+    tipo: new FormControl(''),
+  });
+
   uploadNewMovie(): void {
+    console.log(this.peliculaForm.value);
     try {
       this.moviesService.createElement(
         {
-          nombre: this.movieName,
-          tipo: this.movieType,
-          fechaDeEstreno: new Date(this.releaseDate),
-          cantidadDePublico: this.spectatorCount,
+          nombre: this.peliculaForm.value.descripcion,
+          tipo: this.peliculaForm.value.tipo,
+          fechaDeEstreno: new Date(this.peliculaForm.value.fecha),
+          cantidadDePublico: this.peliculaForm.value.cantidadDePublico,
           fotoDeLaPelicula: '',
           reparto: this.reparto,
         },

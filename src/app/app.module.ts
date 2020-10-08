@@ -27,6 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PeliculaListadoComponent } from './components/pelicula-listado/pelicula-listado.component';
 import { ActorAltaComponent } from './components/actor-alta/actor-alta.component';
 import { ActorListadoComponent } from './components/actor-listado/actor-listado.component';
+import { ListaPaisesComponent } from './components/lista-paises/lista-paises.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PaisService } from './services/pais.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { ActorListadoComponent } from './components/actor-listado/actor-listado.
     PeliculaListadoComponent,
     ActorAltaComponent,
     ActorListadoComponent,
+    ListaPaisesComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,10 +58,11 @@ import { ActorListadoComponent } from './components/actor-listado/actor-listado.
     AngularFirestoreModule,
     AngularFireStorageModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [MoviesService, DatePipe, ActorsService],
+  providers: [MoviesService, DatePipe, ActorsService, PaisService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

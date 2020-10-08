@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ActorsService } from '../../services/actors.service';
@@ -15,12 +16,20 @@ export class ActorAltaComponent implements OnInit {
   public gender: string;
   public photoUrl: string;
   public dateOfBirth: Date = new Date();
+  public nationality: string;
 
   constructor(
     public actorsService: ActorsService,
     private toastr: ToastrService,
     private router: Router
   ) {}
+
+  actorForm = new FormGroup({
+    nombre: new FormControl(''),
+    apellido: new FormControl(''),
+    genero: new FormControl(''),
+    fechaNac: new FormControl(''),
+  });
 
   ngOnInit(): void {}
 
@@ -38,10 +47,11 @@ export class ActorAltaComponent implements OnInit {
     try {
       this.actorsService.createElement(
         {
-          nombre: this.firstName,
-          apellido: this.lastName,
-          fechaDeNacimiento: new Date(this.dateOfBirth),
-          sexo: this.gender,
+          nombre: this.actorForm.value.nombre,
+          apellido: this.actorForm.value.apellido,
+          fechaDeNacimiento: new Date(this.actorForm.value.fechaNac),
+          sexo: this.actorForm.value.genero,
+          nacionalidad: this.nationality,
           foto: '',
         },
         this.fileToUpload
@@ -50,6 +60,15 @@ export class ActorAltaComponent implements OnInit {
       this.router.navigate(['/listado-actores']);
     } catch (error) {
       this.toastr.error('Error al guardar');
+    }
+  }
+
+  registerCountry(data) {
+    if (this.nationality != data.name) {
+      this.nationality = data.name;
+      this.toastr.success('Pais asignado al actor.');
+    } else {
+      this.toastr.error('Pais ya asignado a este actor.');
     }
   }
 }

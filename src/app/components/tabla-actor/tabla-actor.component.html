@@ -1,5 +1,13 @@
 <div class="container">
-  <table class="table table-striped">
+  <table class="table table-striped col-md-12">
+    <!-- <thead>
+      <th></th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Sexo</th>
+      <th>Nacionalidad</th>
+      <th>Fecha de Nacimiento</th>
+    </thead> -->
     <tbody>
       <tr *ngFor="let actor of actorsCollection" (click)="selectActor(actor)">
         <td>
@@ -8,6 +16,7 @@
         <td>{{ actor.data.nombre }}</td>
         <td>{{ actor.data.apellido }}</td>
         <td>{{ actor.data.sexo }}</td>
+        <td>{{ actor.data.nacionalidad }}</td>
         <td>
           {{
             this.datepipe.transform(

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-8">
       <div>
@@ -59,8 +59,139 @@
           >
         </p>
       </div>
+    </div> -->
+
+<!--<div class="col-md-4">
+      <app-tabla-actor
+        (selectedActor)="handleActorSelection($event)"
+        [actorsCollection]="dbActors"
+      ></app-tabla-actor>
     </div>
-    <div class="col-md-4">
+  </div>
+</div> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row title">
+        <h3>Peliculas</h3>
+      </div>
+      <div class="row card-text">
+        <p>Peliculas para uso comercial.<br />Alquiler y venta</p>
+      </div>
+      <form
+        [formGroup]="peliculaForm"
+        (ngSubmit)="uploadNewMovie()"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="descripcion"><b>Nombre:</b></label>
+          <input
+            formControlName="descripcion"
+            type="text"
+            class="form-control"
+            id="descripcion"
+            placeholder="Ingrese un nombre de la pelicula:"
+            required
+          />
+          <div class="invalid-feedback">Por favor ingrese un nombre</div>
+        </div>
+
+        <div class="form-group">
+          <label for="precio"><b>Cantidad de público:</b></label>
+          <input
+            formControlName="cantidadDePublico"
+            type="number"
+            class="form-control"
+            id="cantidadDePublico"
+            placeholder="Ingrese cantidad de público de la película:"
+            required
+          />
+          <div class="invalid-feedback">
+            Por favor ingrese una cantidad de publico
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fehca"><b>Fecha de estreno:</b></label>
+          <input
+            formControlName="fecha"
+            type="date"
+            class="form-control"
+            id="fehca"
+            placeholder="Seleccione fecha de estreno:"
+            required
+          />
+          <div class="invalid-feedback">
+            Por favor seleccione una fecha de vencimiento
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0"><b>Tipo:</b></legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  value="TERROR"
+                  formControlName="tipo"
+                  class="form-check-input"
+                  type="radio"
+                  id="terror"
+                />
+                <label class="form-check-label" for="terror"> Terror </label>
+              </div>
+              <div class="form-check">
+                <input
+                  value="AMOR"
+                  formControlName="tipo"
+                  class="form-check-input"
+                  type="radio"
+                  id="amor"
+                />
+                <label class="form-check-label" for="amor"> Amor </label>
+              </div>
+              <div class="form-check">
+                <input
+                  value="COMEDIA"
+                  formControlName="tipo"
+                  class="form-check-input"
+                  type="radio"
+                  id="comedia"
+                  required
+                />
+                <label class="form-check-label" for="comedia"> Comedia </label>
+              </div>
+              <div class="form-check">
+                <input
+                  value="OTROS"
+                  formControlName="tipo"
+                  class="form-check-input"
+                  type="radio"
+                  id="otros"
+                />
+                <label class="form-check-label" for="otros"> Otros </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="imagen"><b>Imagen:</b></label>
+          <input formControlName="imagen" type="file" class="form-control" id="imagen"
+              (change)="onFileSelected($event)" placeholder="Seleccione una imagen:">
+      </div>-->
+
+        <button
+          type="submit"
+          [disabled]="!peliculaForm.valid"
+          class="btn btn-primary"
+        >
+          Alta
+        </button>
+      </form>
+    </div>
+    <div class="col-md-3">
       <app-tabla-actor
         (selectedActor)="handleActorSelection($event)"
         [actorsCollection]="dbActors"

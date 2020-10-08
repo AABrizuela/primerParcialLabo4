@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class BienvenidoComponent implements OnInit {
   constructor(public router: Router) {}
-
   ngOnInit(): void {}
 
   newMovie() {

@@ -5,4 +5,5 @@ export class Actor {
   sexo: string;
   fechaDeNacimiento: Date;
   foto: string;
+  pais: string;
 }
