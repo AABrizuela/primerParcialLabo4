@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div>
       <h2>Modificar Elemento</h2>
@@ -59,6 +59,55 @@
           class="form-control"
           type="file"
           (change)="handleFileInput($event.target.files)"
+        />
+      </div>
+      <p>Al presionar el boton modificar se efectuaran los cambios.</p>
+      <p>
+        <a
+          class="btn btn-secondary"
+          role="button"
+          (click)="modifyElement(inputElementToModify)"
+          >Modificar</a
+        >
+      </p>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <div class="row">
+    <div>
+      <h2>Modificar Elemento</h2>
+      <div>
+        <label>Nombre:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="movieName"
+          value="{{ inputElementToModify?.data.nombre }}"
+        />
+      </div>
+      <div>
+        <label>Apellido:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="actorLastName"
+          value="{{ inputElementToModify?.data.apellido }}"
+        />
+      </div>
+      <div>
+        <label>Fecha De Nacimiento:</label
+        ><input
+          class="form-control"
+          type="date"
+          [(ngModel)]="releaseDate"
+          value="{{ inputElementToModify?.data.fechaDeNacimiento }}"
+        />
+      </div>
+      <div>
+        <label>Nacionalidad:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="nationality"
+          value="{{ inputElementToModify?.data.nacionalidad }}"
         />
       </div>
       <p>Al presionar el boton modificar se efectuaran los cambios.</p>

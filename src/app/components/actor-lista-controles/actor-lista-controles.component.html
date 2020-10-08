@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <app-tabla-actores-controles
+      [actorsCollection]="elementos"
+      (deleteEmitter)="handleSelectElementForDelete($event)"
+      (modifyEmitter)="handleSelectElementForEdit($event)"
+      (viewEmitter)="handleSelectElementForView($event)"
+    >
+    </app-tabla-actores-controles>
+
+    <app-modificar
+      [inputElementToModify]="elementToModify"
+      (outputModifiedElement)="getUpdatedCollection()"
+      class="col-md"
+    ></app-modificar>
+    <app-detalle
+      [inputElementToView]="elementToView"
+      class="col-md"
+    ></app-detalle>
+    <app-borrar
+      [inputElementToDelete]="elementToDelete"
+      (outputDeletedElement)="getUpdatedCollection()"
+      class="col-md"
+    ></app-borrar>
+  </div>
+</div>

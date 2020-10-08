@@ -19,7 +19,7 @@ export class DetalleComponent implements OnInit {
   public photoUrl: string;
   public spectatorCount: string;
   public releaseDate: string;
-
+  public dateOfBirth: string;
   constructor(
     public datepipe: DatePipe,
     public movieService: MoviesService,
@@ -29,13 +29,13 @@ export class DetalleComponent implements OnInit {
   ngOnInit(): void {}
   ngOnChanges(): void {
     this.movieName = this.inputElementToView?.data.nombre;
-    this.movieType = this.inputElementToView?.data.tipo;
-    this.photoUrl = this.inputElementToView?.data.fotoDeLaPelicula;
-    this.spectatorCount = this.inputElementToView?.data.cantidadDePublico;
-    this.releaseDate = this.datepipe.transform(
-      this.inputElementToView?.data.fechaDeEstreno.toDate(),
+    this.movieType = this.inputElementToView?.data.apellido;
+    this.spectatorCount = this.inputElementToView?.data.nacionalidad;
+    this.dateOfBirth = this.datepipe.transform(
+      this.inputElementToView?.data.fechaDeNacimiento.toDate(),
       'dd/MM/yyyy'
     );
+    console.log(this.spectatorCount);
   }
   cleanFields(): void {
     this.inputElementToView = null;
@@ -44,6 +44,7 @@ export class DetalleComponent implements OnInit {
     this.photoUrl = '';
     this.spectatorCount = '';
     this.releaseDate = '';
+    this.dateOfBirth = '';
   }
 
   deleteElement(): void {

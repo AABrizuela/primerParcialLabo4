@@ -30,6 +30,8 @@ import { ActorListadoComponent } from './components/actor-listado/actor-listado.
 import { ListaPaisesComponent } from './components/lista-paises/lista-paises.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaisService } from './services/pais.service';
+import { ActorListaControlesComponent } from './components/actor-lista-controles/actor-lista-controles.component';
+import { TablaActoresControlesComponent } from './components/tabla-actores-controles/tabla-actores-controles.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { PaisService } from './services/pais.service';
     ActorAltaComponent,
     ActorListadoComponent,
     ListaPaisesComponent,
+    ActorListaControlesComponent,
+    TablaActoresControlesComponent,
   ],
   imports: [
     BrowserModule,

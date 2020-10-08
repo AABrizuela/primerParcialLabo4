@@ -4,6 +4,7 @@ import { StringLiteral } from 'typescript';
 import { MoviesService } from '../../services/movies.service';
 import { movieTypesEnum, movieTypesEnumLabels } from '../../enums/movieEnum';
 import { ToastrService } from 'ngx-toastr';
+import { ActorsService } from '../../services/actors.service';
 
 @Component({
   selector: 'app-modificar',
@@ -19,9 +20,10 @@ export class ModificarComponent implements OnInit {
   public movieName: string;
   public movieType: string;
   public photoUrl: string;
-  public spectatorCount: number;
+  public spectatorCount: string;
   public releaseDate: string;
-
+  public actorLastName: string;
+  public nationality: string;
   private fileToUpload: File;
 
   movieTypesEnum = movieTypesEnum;
@@ -31,7 +33,8 @@ export class ModificarComponent implements OnInit {
   constructor(
     private movieService: MoviesService,
     private datepipe: DatePipe,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private actorsService: ActorsService
   ) {}
 
   ngOnInit(): void {
@@ -41,27 +44,27 @@ export class ModificarComponent implements OnInit {
   ngOnChanges(): void {
     this.movieName = this.inputElementToModify?.data.nombre;
     this.movieType = movieTypesEnum[this.inputElementToModify?.data.tipo];
-
+    this.actorLastName = this.inputElementToModify?.data.apellido;
     this.movieTypeSelection = movieTypesEnum[this.movieType];
     this.photoUrl = this.inputElementToModify?.data.fotoDeLaPelicula;
     this.spectatorCount = this.inputElementToModify?.data.cantidadDePublico;
+    this.nationality = this.inputElementToModify?.data.nacionalidad;
     this.releaseDate = this.datepipe.transform(
-      this.inputElementToModify?.data.fechaDeEstreno.toDate(),
+      this.inputElementToModify?.data.fechaDeNacimiento.toDate(),
       'yyyy-MM-dd'
     );
   }
 
   modifyElement(inputElementToModify) {
     try {
-      this.movieService.modifyElement(
+      this.actorsService.modifyElement(
         {
           id: inputElementToModify.id,
           data: {
             nombre: this.movieName,
-            tipo: this.movieType,
-            cantidadDePublico: this.spectatorCount,
-            fechaDeEstreno: new Date(this.releaseDate),
-            fotoDeLaPelicula: this.photoUrl,
+            apellido: this.actorLastName,
+            fechaDeNacimiento: new Date(this.releaseDate),
+            nacionalidad: this.nationality,
           },
         },
         this.fileToUpload
