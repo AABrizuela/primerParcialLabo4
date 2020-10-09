@@ -3,8 +3,8 @@
   (deleteEmitter)="handleSelectElementForDelete($event)"
   (viewEmitter)="handleSelectElementForView($event)"
 ></app-tabla-pelicula>
-<app-detalle
+<app-detalle-pelicula
   [inputShowDelete]="isSearch"
   [inputElementToView]="elementToView"
   (outputDeletedElement)="getUpdatedCollection()"
-></app-detalle>
+></app-detalle-pelicula>

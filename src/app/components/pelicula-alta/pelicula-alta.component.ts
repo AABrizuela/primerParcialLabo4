@@ -19,6 +19,7 @@ export class PeliculaAltaComponent implements OnInit {
   public spectatorCount: number;
   public releaseDate: Date = new Date();
   public reparto = new Array();
+  public actoresRegistrados: string;
 
   fileToUpload: File = null;
   public dbActors = [];
@@ -60,7 +61,7 @@ export class PeliculaAltaComponent implements OnInit {
         this.fileToUpload
       );
       this.toastr.success('Pelicula Guardada.');
-      this.router.navigate(['/busqueda']);
+      this.router.navigate(['/listado-peliculas']);
     } catch (error) {
       this.toastr.error('Error al guardar pelicula');
     }
@@ -98,7 +99,7 @@ export class PeliculaAltaComponent implements OnInit {
   handleActorSelection(actor) {
     if (!this.reparto.includes(actor.id)) {
       this.toastr.success('Actor registrado en el reparto');
-      this.reparto.push(actor.id);
+      this.reparto.push(`${actor.data.apellido}`);
     } else {
       this.toastr.error('Actor ya seleccionado');
     }
