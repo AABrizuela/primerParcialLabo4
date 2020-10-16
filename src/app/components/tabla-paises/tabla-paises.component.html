@@ -1,0 +1,13 @@
+<div class="container">
+  <table>
+      <tr>
+          <th>Nombre</th>
+          <th>Foto</th>
+      </tr>
+      <tr *ngFor="let pais of this.inputPaises">
+          <td>{{pais.name}}</td>
+          <td><img src={{pais.flag}}></td>
+          <td *ngIf="this.botonTablaPaises"><button type="button" (click)="detalles(pais)">Detalles</button></td>
+      </tr>
+  </table>
+</div>

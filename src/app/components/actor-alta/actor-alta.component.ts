@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { PaisesService } from 'src/app/services/paises.service';
 import { ActorsService } from '../../services/actors.service';
 
 @Component({
@@ -9,20 +10,32 @@ import { ActorsService } from '../../services/actors.service';
   styleUrls: ['./actor-alta.component.css'],
 })
 export class ActorAltaComponent implements OnInit {
+
   private archivoParaSubir: File;
   public nombre: string;
   public apellido: string;
   public genero: string;
   public urlFoto: string;
   public fechaNacimiento: Date = new Date();
+  public nacionalidad;
+
+  public paisArray = new Array();
+  public basePaises = [];
 
   constructor(
     public servicioActores: ActorsService,
     private toastr: ToastrService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public servicioPaises: PaisesService,
+  ) {
+    this.servicioPaises.getPaises().subscribe((datos:any) => {
+      this.basePaises = datos;
+    })
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getColeccionActualizada();
+  }
 
   getGenero(data) {
     this.genero = data;
@@ -43,13 +56,30 @@ export class ActorAltaComponent implements OnInit {
           fechaDeNacimiento: new Date(this.fechaNacimiento),
           sexo: this.genero,
           foto: '',
+          nacionalidad: this.nacionalidad
         },
         this.archivoParaSubir
       );
+      console.log(this.nacionalidad);
       this.toastr.success('Actor Guardado');
       this.router.navigate(['/listado-actores']);
     } catch (error) {
       this.toastr.error('Error al guardar');
     }
+  }
+
+  handlePaisSelection(pais) {
+    if (!this.paisArray.includes(pais.id)) {
+      this.toastr.success('Nacionalidad seleccionada');
+      this.nacionalidad = pais.id;
+      console.log(this.nacionalidad);
+    } else {
+      this.toastr.error('Nacionalidad ya seleccionada');
+    }
+  }
+
+  getColeccionActualizada() {
+    // console.log(this.servicioPaises.getPaises());
+    // this.basePaises = this.servicioPaises.getPaises();
   }
 }

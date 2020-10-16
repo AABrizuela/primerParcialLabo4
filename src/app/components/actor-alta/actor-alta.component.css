@@ -1,0 +1,10 @@
+.col-md-4
+{
+  max-height: 50%;
+  height: 30%;
+}
+
+.row
+{
+  height: 50% !important;
+}

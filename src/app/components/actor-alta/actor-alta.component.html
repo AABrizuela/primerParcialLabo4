@@ -44,5 +44,12 @@
         </p>
       </div>
     </div>
+    <div class="col-md-4 overflow-auto">
+      <h2>Paises</h2>
+      <app-tabla-paises
+        (outputPaises)="handlePaisSelection($event)"
+        [inputPaises]="basePaises"
+      ></app-tabla-paises>
+    </div>
   </div>
 </div>
