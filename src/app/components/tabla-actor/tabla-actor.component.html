@@ -1,26 +1,27 @@
 <div class="container">
+  <h2>Listado Actores:</h2>
   <table class="table table-striped col-md-12">
-    <!-- <thead>
-      <th></th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Sexo</th>
-      <th>Nacionalidad</th>
-      <th>Fecha de Nacimiento</th>
-    </thead> -->
     <tbody>
+      <tr>
+        <!-- <th></th> -->
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Sexo</th>
+        <th>Nacionalidad</th>
+        <th>Fecha de Nacimiento</th>
+      </tr>
       <tr *ngFor="let actor of actorsCollection" (click)="selectActor(actor)">
-        <td>
-          <img [src]="actor.foto" alt="" style="width: 100px; height: 100px" />
-        </td>
-        <td>{{ actor.data.nombre }}</td>
-        <td>{{ actor.data.apellido }}</td>
-        <td>{{ actor.data.sexo }}</td>
-        <td>{{ actor.data.nacionalidad }}</td>
+        <!-- <td>
+         <img [src]="actor.data().foto" alt="" style="width: 100px; height: 100px" />
+        </td> -->
+        <td>{{ actor.data().nombre }}</td>
+        <td>{{ actor.data().apellido }}</td>
+        <td>{{ actor.data().sexo }}</td>
+        <td>{{ actor.data().nacionalidad }}</td>
         <td>
           {{
             this.datepipe.transform(
-              actor.data.fechaDeNacimiento.toDate(),
+              actor.data().fechaDeNacimiento.toDate(),
               "dd/MM/yyyy"
             )
           }}

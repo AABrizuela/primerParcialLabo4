@@ -14,6 +14,7 @@ export class ActorsService {
   getElements() {
     return this.firestore.collection('actores').ref;
   }
+
   async getActorPhoto(id: string) {
     return this.fireStorage.storage.ref(`actores/${id}.jpg`).getDownloadURL();
   }
@@ -52,6 +53,7 @@ export class ActorsService {
       nacionalidad: targetElement.data.nacionalidad,
     });
   }
+
   deleteElement(targetElement) {
     this.firestore.collection('actores').doc(targetElement).delete();
   }

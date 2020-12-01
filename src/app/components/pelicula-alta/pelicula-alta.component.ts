@@ -20,6 +20,7 @@ export class PeliculaAltaComponent implements OnInit {
   public releaseDate: Date = new Date();
   public reparto = new Array();
   public actoresRegistrados: string;
+  public nationality;
 
   fileToUpload: File = null;
   public dbActors = [];
@@ -57,6 +58,7 @@ export class PeliculaAltaComponent implements OnInit {
           cantidadDePublico: this.peliculaForm.value.cantidadDePublico,
           fotoDeLaPelicula: '',
           reparto: this.reparto,
+          paisDeOrigen: this.nationality
         },
         this.fileToUpload
       );
@@ -102,6 +104,15 @@ export class PeliculaAltaComponent implements OnInit {
       this.reparto.push(`${actor.data.apellido}`);
     } else {
       this.toastr.error('Actor ya seleccionado');
+    }
+  }
+
+  registerCountry(data) {
+    if (this.nationality != data.name) {
+      this.nationality = data.name;
+      this.toastr.success('Pais asignado al actor.');
+    } else {
+      this.toastr.error('Pais ya asignado a este actor.');
     }
   }
 }

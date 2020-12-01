@@ -33,6 +33,12 @@ import { PaisService } from './services/pais.service';
 import { ActorListaControlesComponent } from './components/actor-lista-controles/actor-lista-controles.component';
 import { TablaActoresControlesComponent } from './components/tabla-actores-controles/tabla-actores-controles.component';
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
+import { ActorPeliculaComponent } from './components/actor-pelicula/actor-pelicula.component';
+import { TablaPeliDetalleComponent } from './components/tabla-peli-detalle/tabla-peli-detalle.component';
+import { TablaActoresControlesDetalleComponent } from './components/tabla-actores-controles-detalle/tabla-actores-controles-detalle.component';
+import { DetallePaisComponent } from './components/detalle-pais/detalle-pais.component';
+import { PaisPeliculaComponent } from './components/pais-pelicula/pais-pelicula.component';
+import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +60,12 @@ import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-
     ActorListaControlesComponent,
     TablaActoresControlesComponent,
     DetallePeliculaComponent,
+    ActorPeliculaComponent,
+    TablaPeliDetalleComponent,
+    TablaActoresControlesDetalleComponent,
+    DetallePaisComponent,
+    PaisPeliculaComponent,
+    TablaPaisesComponent,
   ],
   imports: [
     BrowserModule,

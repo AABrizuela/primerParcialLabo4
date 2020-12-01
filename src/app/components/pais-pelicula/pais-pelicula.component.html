@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h1>Listado Paises:</h1>
+    <app-tabla-paises
+      [paisCollection] = "elementosFiltrados"
+      (movieEmitter) = "handleSelectedElementForMovies($event)"
+      (actorEmitter) = "handleSelectedElementForActors($event)"
+      (viewEmitter) = "handleSelectedElementForView($event)"
+    >
+    </app-tabla-paises>
+
+    <app-tabla-peli-detalle
+      [moviesCollection] = "elementToMovies"
+      class="col-md"
+    ></app-tabla-peli-detalle>
+    <app-detalle-pais
+      [inputElementToCountry]="elementToView"
+      class="col-md"
+    ></app-detalle-pais>
+    <app-tabla-actor
+      [actorsCollection]="elementToActors"
+      class="col-md"
+    ></app-tabla-actor>
+  </div>
+</div>

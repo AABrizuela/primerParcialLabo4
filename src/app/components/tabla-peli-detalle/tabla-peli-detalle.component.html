@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table table-striped col-md-12">
+    <h2>Listado Peliculas:</h2>
+    <tbody>
+      <tr>
+        <th>Titulo</th>
+        <th>Cantidad Publico</th>
+        <th>Reparto (Apellido)</th>
+        <th>Genero</th>
+        <th>Fecha Estreno</th>
+      </tr>
+      <tr *ngFor="let movie of moviesCollection">
+        <!-- <td>
+          <img [src]="movie.data().fotoDeLaPelicula" alt="" style="width: 100px; height: 100px" />
+        </td> -->
+        <td>{{ movie.data().nombre }}</td>
+        <td>{{ movie.data().cantidadDePublico }}</td>
+        <td>{{ movie.data().reparto }}</td>
+        <td>{{ movie.data().tipo }}</td>
+        <td>
+          {{
+            this.datepipe.transform(
+              movie.data().fechaDeEstreno.toDate(),
+              "dd/MM/yyyy"
+            )
+          }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

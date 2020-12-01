@@ -11,8 +11,8 @@ export class TablaActoresControlesComponent implements OnInit {
   @Input() showUpdateAndDeleteControls: boolean;
   @Output() deleteEmitter: EventEmitter<any> = new EventEmitter<any>();
   @Output() modifyEmitter: EventEmitter<Actor> = new EventEmitter<Actor>();
-
   @Output() viewEmitter: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() {}
 
   ngOnInit(): void {}

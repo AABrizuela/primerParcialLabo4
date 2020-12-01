@@ -22,6 +22,7 @@ export class BusquedaComponent implements OnInit {
   }
 
   handleCambiarVista() {}
+
   handleSelectElementForEdit(event) {
     this.elementToModify = event;
   }

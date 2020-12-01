@@ -1,35 +1,33 @@
 <div class="container grid">
-  <div class="wrapper" *ngFor="let movie of moviesCollection">
+  <div class="wrapper" *ngFor="let pais of paisCollection">
     <div class="card mb-4 shadow-sm">
-      <img [src]="movie.movieUrl" alt="" style="width: 150px; height: 200px" />
+      <img [src]="pais.flag" alt="" style="width: 100px; height: 50px" />
       <div class="card-body">
         <p class="card-text">
-          {{ movie.data.nombre }}
+          {{ pais.name }}
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button
-              *ngIf="showUpdateAndDeleteControls"
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              (click)="emitDelete(movie)"
+              (click)="emitMovies(pais)"
             >
-              Borrar
+              Peliculas
             </button>
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              (click)="emitView(movie)"
+              (click)="emitActors(pais)"
+            >
+              Actores
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="emitView(pais)"
             >
               Detalle
-            </button>
-            <button
-              *ngIf="showUpdateAndDeleteControls"
-              type="button"
-              class="btn btn-sm btn-outline-secondary"
-              (click)="emitModify(movie)"
-            >
-              Modificar
             </button>
           </div>
         </div>
@@ -37,3 +35,4 @@
     </div>
   </div>
 </div>
+

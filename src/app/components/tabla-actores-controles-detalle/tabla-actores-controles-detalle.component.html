@@ -1,35 +1,33 @@
 <div class="container grid">
-  <div class="wrapper" *ngFor="let movie of moviesCollection">
+  <div class="wrapper" *ngFor="let actor of actorsCollection">
     <div class="card mb-4 shadow-sm">
-      <img [src]="movie.movieUrl" alt="" style="width: 150px; height: 200px" />
+      <img [src]="actor.foto" alt="" style="width: 150px; height: 200px" />
       <div class="card-body">
         <p class="card-text">
-          {{ movie.data.nombre }}
+          {{ actor.data.nombre }}{{ "  " }} {{ actor.data.apellido }}
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button
-              *ngIf="showUpdateAndDeleteControls"
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              (click)="emitDelete(movie)"
+              (click)="emitMovie(actor)"
             >
-              Borrar
+              Peliculas
             </button>
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              (click)="emitView(movie)"
+              (click)="emitCountry(actor)"
+            >
+              Pais
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="emitView(actor)"
             >
               Detalle
-            </button>
-            <button
-              *ngIf="showUpdateAndDeleteControls"
-              type="button"
-              class="btn btn-sm btn-outline-secondary"
-              (click)="emitModify(movie)"
-            >
-              Modificar
             </button>
           </div>
         </div>

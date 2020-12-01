@@ -11,6 +11,7 @@ export class ActorListaControlesComponent implements OnInit {
   public elementToModify: any;
   public elementToView: any;
   public elementos = [];
+
   constructor(private actorsService: ActorsService) {}
 
   ngOnInit(): void {

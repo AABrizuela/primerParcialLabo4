@@ -16,14 +16,6 @@ export class MoviesService {
 
   getElements() {
     return this.firestore.collection('peliculas').ref;
-    // .onSnapshot((snapshot) => {
-    //    snapshot.docs.map((element: any) => {
-    //      this.elementos.push({
-    //        id: element.id,
-    //        data: element.data(),
-    //      });
-    //    });
-    // });
   }
 
   deleteElement(targetElement) {

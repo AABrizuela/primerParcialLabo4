@@ -27,6 +27,7 @@ export class DetalleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
   ngOnChanges(): void {
     this.movieName = this.inputElementToView?.data.nombre;
     this.movieType = this.inputElementToView?.data.apellido;
@@ -35,8 +36,10 @@ export class DetalleComponent implements OnInit {
       this.inputElementToView?.data.fechaDeNacimiento.toDate(),
       'dd/MM/yyyy'
     );
+    console.log(this.inputElementToView);
     console.log(this.spectatorCount);
   }
+
   cleanFields(): void {
     this.inputElementToView = null;
     this.movieName = '';

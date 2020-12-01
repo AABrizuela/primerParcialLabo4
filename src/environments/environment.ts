@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyDiEVuogub3_XM940Hyefln_Fjl8WUIKm4',
-    authDomain: 'dlp-labo4.firebaseapp.com',
-    databaseURL: 'https://dlp-labo4.firebaseio.com',
-    projectId: 'dlp-labo4',
-    storageBucket: 'dlp-labo4.appspot.com',
-    messagingSenderId: '211875682513',
-    appId: '1:211875682513:web:f15683b76df564791b0df0',
-    measurementId: 'G-TLWLRHX7LN',
+    apiKey: "AIzaSyCtUBzTPtcSkiBp4qiur_XPIW1YrGbI3Pc",
+    authDomain: "parcial-peliculas-labo4.firebaseapp.com",
+    databaseURL: "https://parcial-peliculas-labo4.firebaseio.com",
+    projectId: "parcial-peliculas-labo4",
+    storageBucket: "parcial-peliculas-labo4.appspot.com",
+    messagingSenderId: "266104827911",
+    appId: "1:266104827911:web:def6405e2a2cd1717ebaa2",
+    measurementId: "G-BLJNCRZRJT"
   },
 };
 
