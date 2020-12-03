@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActorsService } from 'src/app/services/actors.service';
 import { MoviesService } from 'src/app/services/movies.service';
+import { PaisService } from 'src/app/services/pais.service';
 
 
 @Component({
@@ -11,12 +12,14 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class ActorPeliculaComponent implements OnInit {
 
   public elementToCountry: any;
-  public elementToMovie: any;
+  public elementToMovies: any;
   public elementToView: any;
   public elementos = [];
   public peliculas = [];
+  public peliculasFiltradas = [];
+  public paisesFiltrados = [];
 
-  constructor(private actorsService: ActorsService, private moviesService: MoviesService) {
+  constructor(private actorsService: ActorsService, private moviesService: MoviesService, private paisService: PaisService) {
 
   }
 
@@ -28,14 +31,45 @@ export class ActorPeliculaComponent implements OnInit {
   handleCambiarVista() {}
 
   handleSelectElementForMovie(event) {
-    console.log(event);
-    this.elementToMovie = event;
+    var param = event;
+    var aux = []
+    this.moviesService
+      .getElements()
+      .get()
+      .then((snapshot) => {
+        this.elementos = [];
+        snapshot.docs.map((element: any) => {
+          this.peliculasFiltradas.push(element);
+        });
+        this.peliculasFiltradas = this.peliculasFiltradas.filter((pelicula) => {
+          pelicula.data().reparto.forEach(actor => {
+            if(actor === param.data.apellido)
+            {
+              aux.push(pelicula);
+            }
+          });
+          return aux;
+        });
+        this.elementToMovies = this.peliculasFiltradas;
+      });
   }
   handleSelectElementForView(event) {
     this.elementToView = event;
   }
   handleSelectElementForCountry(event) {
-    this.elementToCountry = event.data.nacionalidad;
+    var param = event;
+    console.log(this.paisService.getCountries());
+    this.paisService.getCountries().subscribe((countries: any) => {
+      this.elementos = countries;
+
+      countries.forEach((country) => {
+        if (country.name === param.data.nacionalidad) {
+          this.paisesFiltrados.push(country);
+        }
+      });
+    });
+    console.log(this.paisesFiltrados);
+    this.elementToCountry = this.paisesFiltrados;
   }
 
   getUpdatedCollection() {

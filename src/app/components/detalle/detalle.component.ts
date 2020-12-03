@@ -29,11 +29,11 @@ export class DetalleComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    this.movieName = this.inputElementToView?.data.nombre;
-    this.movieType = this.inputElementToView?.data.apellido;
-    this.spectatorCount = this.inputElementToView?.data.nacionalidad;
+    this.movieName = this.inputElementToView?.data().nombre;
+    this.movieType = this.inputElementToView?.data().apellido;
+    this.spectatorCount = this.inputElementToView?.data().nacionalidad;
     this.dateOfBirth = this.datepipe.transform(
-      this.inputElementToView?.data.fechaDeNacimiento.toDate(),
+      this.inputElementToView?.data().fechaDeNacimiento.toDate(),
       'dd/MM/yyyy'
     );
     console.log(this.inputElementToView);

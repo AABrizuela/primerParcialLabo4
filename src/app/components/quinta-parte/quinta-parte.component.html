@@ -1,0 +1,23 @@
+<app-tabla-pelicula
+  [moviesCollection]="elementos"
+  (viewEmitter)="handleSelectElementForView($event)"
+></app-tabla-pelicula>
+
+<div class="container">
+  <app-detalle-pais
+  [inputElementToCountry] = "elementToView"
+  ></app-detalle-pais>
+
+  <button *ngIf="elementToView != ''" class="btn btn-secondary" (click)="filterActor()">Mostrar Actores</button>
+</div>
+
+<app-tabla-actor
+  [actorsCollection] = "elementToActors"
+  (selectedActor) = "handleSelectedActor($event)"
+></app-tabla-actor>
+
+<app-detalle
+  [inputElementToView]="selectedActor"
+  class="col-md"
+></app-detalle>
+

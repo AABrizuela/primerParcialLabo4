@@ -50,14 +50,12 @@ export class PaisPeliculaComponent implements OnInit {
           this.peliculasFiltradas.push(element);
         });
         this.peliculasFiltradas = this.peliculasFiltradas.filter((pelicula) => {
-          console.log(pelicula.data().nationality);
           if(pelicula.data().nationality == event)
           {
             return pelicula;
           }
         });
         this.elementToMovies = this.peliculasFiltradas;
-        console.log(this.elementToMovies.data());
       });
   }
 

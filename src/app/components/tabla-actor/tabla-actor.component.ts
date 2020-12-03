@@ -10,6 +10,7 @@ import { ActorsService } from '../../services/actors.service';
 })
 export class TablaActorComponent implements OnInit {
   @Input() actorsCollection: any[];
+  @Input() boton: boolean = false;
   @Output() selectedActor: EventEmitter<Actor> = new EventEmitter<Actor>();
   constructor(public actorsService: ActorsService, public datepipe: DatePipe) {}
 

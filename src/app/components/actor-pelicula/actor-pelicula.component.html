@@ -5,11 +5,10 @@
       (countryEmitter)="handleSelectElementForCountry($event)"
       (movieEmitter)="handleSelectElementForMovie($event)"
       (viewEmitter)="handleSelectElementForView($event)"
-    >
-    </app-tabla-actores-controles-detalle>
+    ></app-tabla-actores-controles-detalle>
 
     <app-tabla-peli-detalle
-      [moviesCollection] = "peliculas"
+      [moviesCollection] = "peliculasFiltradas"
       class="col-md"
     ></app-tabla-peli-detalle>
     <app-detalle-pais

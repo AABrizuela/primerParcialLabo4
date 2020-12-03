@@ -10,8 +10,10 @@ export class PeliculaListadoComponent implements OnInit {
   public elementos = [];
   public elementToView: any;
   @Input() inputElementToView: any;
+
   constructor(public moviesService: MoviesService) {}
   public isSearch = true;
+
   ngOnInit(): void {
     this.getUpdatedCollection();
   }
