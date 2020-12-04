@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <h2>Verificar Elemento</h2>
+      <div>
+        <label>Nombre:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="movieName"
+          value="{{ movieName }}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>Apellido:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="movieType"
+          value="{{ movieType }}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>Nacionalidad:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="nacionalidad"
+          value="{{ nacionalidad }}"
+          disabled
+        />
+      </div>
+      <div>
+        <label>Fecha de Nacimiento:</label
+        ><input
+          class="form-control"
+          [(ngModel)]="dateOfBirth"
+          value="{{ dateOfBirth }}"
+          disabled
+        />
+      </div>
+      <p>
+        Al presionar el boton 'Limpiar' se reiniciaran los campos de muestra.
+      </p>
+      <p>
+        <a class="btn btn-secondary" role="button" (click)="cleanFields()"
+          >Limpiar Campos</a
+        >
+      </p>
+    </div>
+  </div>
+</div>

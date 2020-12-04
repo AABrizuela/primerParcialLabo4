@@ -1,7 +1,9 @@
-<app-tabla-pelicula
-  [moviesCollection]="elementos"
-  (viewEmitter)="handleSelectElementForView($event)"
-></app-tabla-pelicula>
+<div class="container">
+  <app-tabla-pelicula
+    [moviesCollection]="elementos"
+    (viewEmitter)="handleSelectElementForView($event)"
+  ></app-tabla-pelicula>
+</div>
 
 <div class="container">
   <app-detalle-pais
@@ -11,13 +13,14 @@
   <button *ngIf="elementToView != ''" class="btn btn-secondary" (click)="filterActor()">Mostrar Actores</button>
 </div>
 
-<app-tabla-actor
+<app-lista-actor-detalle
   [actorsCollection] = "elementToActors"
   (selectedActor) = "handleSelectedActor($event)"
-></app-tabla-actor>
+></app-lista-actor-detalle>
 
-<app-detalle
+<app-detalle-verificar
   [inputElementToView]="selectedActor"
   class="col-md"
-></app-detalle>
+></app-detalle-verificar>
+
 

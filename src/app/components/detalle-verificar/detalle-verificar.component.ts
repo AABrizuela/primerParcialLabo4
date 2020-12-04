@@ -1,14 +1,15 @@
 import { DatePipe } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { MoviesService } from '../../services/movies.service';
+import { ActorsService } from 'src/app/services/actors.service';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
-  selector: 'app-detalle',
-  templateUrl: './detalle.component.html',
-  styleUrls: ['./detalle.component.css'],
+  selector: 'app-detalle-verificar',
+  templateUrl: './detalle-verificar.component.html',
+  styleUrls: ['./detalle-verificar.component.css']
 })
-export class DetalleComponent implements OnInit {
+export class DetalleVerificarComponent implements OnInit {
   @Input() inputElementToView: any;
   @Input() inputShowDelete: boolean;
   @Output() outputDeletedElement: EventEmitter<boolean> = new EventEmitter<
@@ -17,27 +18,28 @@ export class DetalleComponent implements OnInit {
   public movieName: string;
   public movieType: string;
   public photoUrl: string;
-  public spectatorCount: string;
-  public releaseDate: string;
+  public nacionalidad: string;
   public dateOfBirth: string;
+  public elenco: string;
+
   constructor(
     public datepipe: DatePipe,
     public movieService: MoviesService,
+    public actorsService: ActorsService,
     private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
-
   ngOnChanges(): void {
-    this.movieName = this.inputElementToView?.data.nombre;
-    this.movieType = this.inputElementToView?.data.apellido;
-    this.spectatorCount = this.inputElementToView?.data.nacionalidad;
+    this.movieName = this.inputElementToView?.data().nombre;
+    this.movieType = this.inputElementToView?.data().apellido;
+    this.nacionalidad = this.inputElementToView?.data().nacionalidad;
     this.dateOfBirth = this.datepipe.transform(
-      this.inputElementToView?.data.fechaDeNacimiento.toDate(),
+      this.inputElementToView?.data().fechaDeNacimiento.toDate(),
       'dd/MM/yyyy'
     );
     console.log(this.inputElementToView);
-    console.log(this.spectatorCount);
+    console.log(this.nacionalidad);
   }
 
   cleanFields(): void {
@@ -45,8 +47,7 @@ export class DetalleComponent implements OnInit {
     this.movieName = '';
     this.movieType = '';
     this.photoUrl = '';
-    this.spectatorCount = '';
-    this.releaseDate = '';
+    this.nacionalidad = '';
     this.dateOfBirth = '';
   }
 

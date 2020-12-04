@@ -37,7 +37,8 @@ export class ActorPeliculaComponent implements OnInit {
       .getElements()
       .get()
       .then((snapshot) => {
-        this.elementos = [];
+        this.elementToMovies = [];
+        this.peliculasFiltradas = [];
         snapshot.docs.map((element: any) => {
           this.peliculasFiltradas.push(element);
         });
@@ -60,8 +61,6 @@ export class ActorPeliculaComponent implements OnInit {
     var param = event;
     console.log(this.paisService.getCountries());
     this.paisService.getCountries().subscribe((countries: any) => {
-      this.elementos = countries;
-
       countries.forEach((country) => {
         if (country.name === param.data.nacionalidad) {
           this.paisesFiltrados.push(country);

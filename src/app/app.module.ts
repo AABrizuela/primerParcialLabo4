@@ -40,6 +40,8 @@ import { DetallePaisComponent } from './components/detalle-pais/detalle-pais.com
 import { PaisPeliculaComponent } from './components/pais-pelicula/pais-pelicula.component';
 import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.component';
 import { QuintaParteComponent } from './components/quinta-parte/quinta-parte.component';
+import { ListaActorDetalleComponent } from './components/lista-actor-detalle/lista-actor-detalle.component';
+import { DetalleVerificarComponent } from './components/detalle-verificar/detalle-verificar.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { QuintaParteComponent } from './components/quinta-parte/quinta-parte.com
     PaisPeliculaComponent,
     TablaPaisesComponent,
     QuintaParteComponent,
+    ListaActorDetalleComponent,
+    DetalleVerificarComponent,
   ],
   imports: [
     BrowserModule,
