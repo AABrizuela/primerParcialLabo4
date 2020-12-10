@@ -49,26 +49,24 @@ export class ActorPeliculaComponent implements OnInit {
               aux.push(pelicula);
             }
           });
-          return aux;
+          this.elementToMovies = aux;
         });
-        this.elementToMovies = this.peliculasFiltradas;
       });
   }
+
   handleSelectElementForView(event) {
     this.elementToView = event;
   }
+
   handleSelectElementForCountry(event) {
     var param = event;
-    console.log(this.paisService.getCountries());
     this.paisService.getCountries().subscribe((countries: any) => {
       countries.forEach((country) => {
-        if (country.name === param.data.nacionalidad) {
-          this.paisesFiltrados.push(country);
+        if (country.name == param.data.nacionalidad) {
+          this.elementToCountry = country;
         }
       });
     });
-    console.log(this.paisesFiltrados);
-    this.elementToCountry = this.paisesFiltrados;
   }
 
   getUpdatedCollection() {

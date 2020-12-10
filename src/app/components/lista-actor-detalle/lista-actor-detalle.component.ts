@@ -13,6 +13,7 @@ export class ListaActorDetalleComponent implements OnInit {
   @Input() actorsCollection: any[];
   @Input() boton: boolean = false;
   @Output() selectedActor: EventEmitter<Actor> = new EventEmitter<Actor>();
+
   constructor(public actorsService: ActorsService, public datepipe: DatePipe) {}
 
   ngOnInit(): void {}

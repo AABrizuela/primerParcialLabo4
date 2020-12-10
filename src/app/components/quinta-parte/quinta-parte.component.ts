@@ -29,7 +29,7 @@ export class QuintaParteComponent implements OnInit {
   handleSelectElementForView(pelicula) {
     this.paisService.getCountries().subscribe((countries: any) => {
       countries.forEach((country) => {
-        if (country.name === pelicula.data.nationality) {
+        if (country.name === pelicula.data.paisDeOrigen) {
           this.elementToView = country;
         }
       });
@@ -59,6 +59,8 @@ export class QuintaParteComponent implements OnInit {
 
   filterActor()
   {
+    this.actoresFiltrados = [];
+
     this.actorsService
       .getElements()
       .get()

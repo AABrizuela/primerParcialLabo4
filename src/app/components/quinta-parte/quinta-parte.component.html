@@ -6,21 +6,24 @@
 </div>
 
 <div class="container">
-  <app-detalle-pais
-  [inputElementToCountry] = "elementToView"
-  ></app-detalle-pais>
+  <div class="row">
+    <div>
+      <app-detalle-pais
+      [inputElementToCountry] = "elementToView"
+      ></app-detalle-pais>
 
-  <button *ngIf="elementToView != ''" class="btn btn-secondary" (click)="filterActor()">Mostrar Actores</button>
+      <button *ngIf="elementToView != ''" class="btn btn-secondary" (click)="filterActor()">Mostrar Actores</button>
+    </div>
+
+    <app-lista-actor-detalle
+      [actorsCollection] = "elementToActors"
+      (selectedActor) = "handleSelectedActor($event)"
+    ></app-lista-actor-detalle>
+
+    <app-detalle-verificar
+      [inputElementToView]="selectedActor"
+      class="col-md"
+    ></app-detalle-verificar>
+  </div>
 </div>
-
-<app-lista-actor-detalle
-  [actorsCollection] = "elementToActors"
-  (selectedActor) = "handleSelectedActor($event)"
-></app-lista-actor-detalle>
-
-<app-detalle-verificar
-  [inputElementToView]="selectedActor"
-  class="col-md"
-></app-detalle-verificar>
-
 

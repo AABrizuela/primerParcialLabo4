@@ -50,7 +50,7 @@ export class PaisPeliculaComponent implements OnInit {
           this.peliculasFiltradas.push(element);
         });
         this.peliculasFiltradas = this.peliculasFiltradas.filter((pelicula) => {
-          if(pelicula.data().nationality == event)
+          if(pelicula.data().paisDeOrigen == event)
           {
             return pelicula;
           }
